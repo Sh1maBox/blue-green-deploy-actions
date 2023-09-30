@@ -27,17 +27,9 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Blue Deploy
+      - name: Blue Green Deploy
         uses: docker/build-push-action@v4
         with:
           context: .
           push: true
           tags: ${{ inputs.color == 'blue' && 'ghcr.io/sh1ma/greenland-yomiage:blue' || 'ghcr.io/sh1ma/greenland-yomiage:green' }}
-          if: github.run_number%2 != 0
-      - name: Green Deploy
-        uses: docker/build-push-action@v4
-        with:
-          context: .
-          push: true
-          tags: ghcr.io/sh1ma/greenland-yomiage:green
-          if: github.run_number%2 == 0
