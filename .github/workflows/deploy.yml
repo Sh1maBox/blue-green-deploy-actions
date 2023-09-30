@@ -32,4 +32,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ inputs.color == 'blue' && 'ghcr.io/Sh1maBox/hello-py:blue' || 'ghcr.io/Sh1maBox/hello-py:green' }}
+          tags: ${{ inputs.color == 'blue' && 'ghcr.io/Sh1maBox/blue-green-deploy-actions:blue' || 'ghcr.io/Sh1maBox/blue-green-deploy-actions:green' }}
